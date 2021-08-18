@@ -1,0 +1,18 @@
+{
+    "name": "Pivot & Multi-Pivot Reports to PDF",
+    "description": "A alternative approach to export PDF of pivot and multi pivot tables from ServiceNow(Quebec).",
+    "version": "1.0",
+    "manifest_version": 3,
+    "permissions": ["activeTab"],
+    "icons": 
+    {  "48": "icons/icon_48.png",
+       "128": "icons/icon_128.png" },
+    "content_scripts": 
+    [
+        {
+            "run_at" : "document_idle",
+            "matches": ["*://*.service-now.com/sys_report_template.do?jvar_report_id=*"],
+            "js": ["src/export_pdf.js","src/jquery.min.js"]
+        }
+    ]
+}
